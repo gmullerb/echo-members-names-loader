@@ -1,0 +1,16 @@
+# Folders
+.gradle/
+build/
+node_modules/
+# Files
+*.log
+*.tgz
+# IDEs
+.vscode
+.vscode/
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+.idea/

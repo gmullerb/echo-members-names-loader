@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "plugin:base-style-config/js-rules"
+  ],
+  "env": {
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "root": true,
+  "rules": {
+    "no-console": "error",
+    "no-invalid-this": "error",
+    "object-curly-newline": ["error", {
+      "consistent": true
+      }
+    ],
+    "quotes":  [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ]
+  }
+}
