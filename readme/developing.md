@@ -2,12 +2,14 @@
 
 ## Prerequisites
 
-* Node/Npm, Node/Yarn or failing [Java](http://www.oracle.com/technetwork/java/javase/downloads).
-* [Git](https://git-scm.com/downloads) (only if you are going to clone the project).
+* [NodeJS](https://nodejs.org/en/download)/npm [1].
+* [Git](https://git-scm.com/downloads) (if you are going to clone the project).
+
+> [1] [Downloading NodeJS](https://nodejs.org/en/download) will also download and provide [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-installer-to-install-nodejs-and-npm).
 
 ## Getting it
 
-Clone or download the project[1], in the desired folder execute:
+[Clone](https://help.github.com/articles/cloning-a-repository/) the project in the desired folder by executing:
 
 ```sh
 git clone https://github.com/gmullerb/echo-members-names-loader
@@ -19,11 +21,7 @@ or
 git clone https://gitlab.com/gmullerb/echo-members-names-loader
 ```
 
-> [1] [Cloning a repository](https://help.github.com/articles/cloning-a-repository/)
-
 ## Set up
-
-### Npm
 
 Run:
 
@@ -31,18 +29,9 @@ Run:
 npm install
 ```
 
-> Recommendation: Immediately after installation, run `npm run check` to be sure that initial code is "ok".  
-> [1] it will use eslint configuration defined in [base-style-config](https://github.com/gmullerb/base-style-config), most specifically [eslint-plugin-base-style-config](https://www.npmjs.com/package/eslint-plugin-base-style-config).
+It will install project dependencies, as [eslint](https://www.npmjs.com/package/eslint), [eslint-plugin-regex](https://www.npmjs.com/package/eslint-plugin-regex), [any-eslint-parser](https://www.npmjs.com/package/any-eslint-parser), [eslint-plugin-base-style-config](https://www.npmjs.com/package/eslint-plugin-base-style-config), etc.
 
-### Gradle
-
-Run:
-
-```sh
-./gradlew
-```
-
-This command will install `node` (`npm install`) and run `npm run check`.
+> Recommendation: Immediately after installation, run `npm run check` to be sure that initial code is "ok".
 
 ### Npm scripts
 
@@ -53,12 +42,6 @@ Npm scripts, [`package.json`](../package.json):
 * `lint`: runs lints.
 * `test`: runs test.
 * `check`: runs lints, test, pack and audit.
-
-#### From Gradle
-
-Run any scripts using `/gradlew npm_run_.name.`, where `.name.` is the name of the npm script, e.g.:
-
-`lint.common` => `./gradlew npm_run_lint.common`
 
 ## Folders structure
 

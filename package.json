@@ -1,20 +1,20 @@
 {
   "name": "echo-members-names-loader",
-  "description": "Get members name when loading module",
-  "version": "1.0.0",
+  "description": "Webpack loader that echoes Members Names",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Gonzalo Müller Bravo",
   "main": "lib/index.js",
   "files": [
     "lib"
   ],
-  "homepage": "https://gitlab.com/gmullerb/echo-members-names-loader",
+  "homepage": "https://echo-members-names-loader.github.io",
   "repository": {
     "type": "git",
     "url": "https://github.com/gmullerb/echo-members-names-loader"
   },
   "bugs": {
-    "url": "https://gitlab.com/gmullerb/echo-members-names-loader/issues"
+    "url": "https://github.com/gmullerb/echo-members-names-loader/issues"
   },
   "keywords": [
     "echo-members-names-loader",
@@ -26,6 +26,7 @@
     "reflect",
     "identity",
     "proxy",
+    "transform",
     "member name",
     "member map",
     "module map",
@@ -48,11 +49,13 @@
   ],
   "scripts": {
     "lint": "npm run lint.common && npm run lint.source",
-    "lint.common": "echo ==== Lint Common ==== && lintspaces --newline --indentation \"spaces\"  ./lib/**/*.* ./readme/**/*.* ./tests/**/*.* ./docs/**/*.* ./*.json ./*.yml ./*.md ./*.sh ./*.txt ./*.properties ./*.gradle ./.gitignore ./.npmignore",
+    "lint.common": "echo ==== Lint Common ==== && eslint --config .eslintrc-any.json \"**/[\\.a-zA-Z]*.+(js|jsx|ts|tsx|json|yml|xml|sh|txt|md|svg|properties|gradle|java|cpp|c|html|css|groovy)\" \"**/.+(|gitignore|npmignore)\" --no-eslintrc --ignore-pattern \"build\"",
     "lint.source": "echo ==== Lint Source Code ==== && eslint --color \"**/*.js\"",
-    "test": "echo ==== Test ==== && tape tests/test.js",
+    "test": "echo ==== Test ==== && nyc tape tests/test.js",
     "prepack": "echo ==== Build Package ====",
-    "check": "npm run lint && npm run test && mkdir -p build && cd build && npm pack ../ && npm audit"
+    "check": "npm run lint && npm run test && mkdir -p build && cd build && npm pack ../",
+    "check.all": "npm run check && npm audit",
+    "prepublishOnly": "npm run check"
   },
   "engines": {
     "node": ">= 6.0.0"
@@ -61,10 +64,24 @@
     "webpack": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-plugin-base-style-config": "^1.0.2",
-    "lintspaces-cli": "^0.7.1",
-    "tape": "^4.10.2",
-    "nyc": "^15.0.0"
+    "any-eslint-parser": "^1.0.1",
+    "eslint": "^8.13.0",
+    "eslint-plugin-regex": "^1.9.0-delta",
+    "eslint-plugin-base-style-config": "^2.9.2",
+    "tape": "^4.15.1",
+    "nyc": "^15.1.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "branches": 85,
+    "functions": 50,
+    "statements": 25,
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "report-dir": "build/coverage",
+    "temp-dir": "build/coverage"
   }
 }

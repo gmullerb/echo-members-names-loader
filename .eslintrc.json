@@ -1,6 +1,7 @@
 {
   "extends": [
-    "plugin:base-style-config/js-rules"
+    "plugin:base-style-config/js-rules",
+    "plugin:base-style-config/regex[copyright], regex[no-equality]"
   ],
   "env": {
     "node": true

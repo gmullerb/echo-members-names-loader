@@ -49,10 +49,27 @@ Alternatively, [`identity-object-proxy-loader`](https://github.com/lucasconstant
 }
 ```
 
+Or use
+
+"text-transform-loader": " ^2.0.0",
+
+const mockedCssRule = {
+  test: /\.css$/,
+  use: {
+  loader: 'text-transform-loader',
+  options: {
+    transformText: function transform(source) {
+      return identity-object-proxy-loader().text o algo asi
+      }
+    }
+  }
+}
+
 **Or instead Just use `echo-members-names-loader`**:
 
 * 2 steps.
 * 1 dependency.
+* Totally independent package, it has not dependency in other modules.
 
 1 . Add dependencies:
 
@@ -62,7 +79,7 @@ Alternatively, [`identity-object-proxy-loader`](https://github.com/lucasconstant
   ..
   "devDependencies": {
     "webpack": "^4.0.0",
-    "echo-members-names-loader": "1.0.0",
+    "echo-members-names-loader": "1.0.1",
     ..
 ```
 
